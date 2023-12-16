@@ -1,9 +1,11 @@
+weapon_list = []
 class Weapon:
     def __init__(self, name: str, type: str, damage: list, value: int) -> None:
         self.name = name
         self.type = type
         self. damage = damage
         self. value = value
+        weapon_list.append(self)
 
 
 iron_sword = Weapon(name="Iron Sword", 
@@ -30,3 +32,9 @@ fists = Weapon(name="Fists",
                  type="Bare", 
                  damage=[1, 2], 
                  value= 0)
+
+def list_weapons():
+    count = 1
+    for weapon in weapon_list:
+        print(f"[{count}]: {weapon.name}: \n Dmg: {weapon.damage},\n Val: {weapon.value} \n")
+        count += 1
