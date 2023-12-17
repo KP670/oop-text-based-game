@@ -1,6 +1,6 @@
 from random import choice
 from weapon import *
-
+from health_bar import HealthBar
 class Character:
     def __init__(self, name: str, health: int) -> None:
         self.name = name
@@ -13,6 +13,7 @@ class Player(Character):
     def __init__(self, name: str, health: int) -> None:
         super().__init__(name=name, health=health)
         self.weapon = fists
+        self.health_bar = HealthBar(self, color="green")
         
     def equip(self) -> None:
         print(f"Your current weapon is: {self.weapon.name} \n")
@@ -47,6 +48,8 @@ class Player(Character):
         target.health = max(target.health, 0)
 
         print(f"{target.name} has been inflicted with -{damage}HP, leaving {target.name} with {target.health}HP!")
+        target.health_bar.update()
+
 
 class Enemy(Character):
     def __init__(self, name: str, health: int, weapons: list) -> None:
@@ -54,6 +57,8 @@ class Enemy(Character):
 
         super().__init__(name=name, health=health)
         self.weapons = weapons
+        self.health_bar = HealthBar(self, color="red")
+
 
     def attack(self, target) -> None:
         weapon = choice(self.weapons)
@@ -64,5 +69,6 @@ class Enemy(Character):
         target.health = max(target.health, 0)
 
         print(f"{target.name} has been inflicted with -{damage}HP, leaving {target.name} with {target.health}HP!")
+        target.health_bar.update()
 
 enemy = Enemy(name="Enemy", health=100, weapons=[fists, bow, bow])

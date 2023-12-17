@@ -1,6 +1,5 @@
 from character import enemy, Player
-
-
+import os
 
 player = Player(name="Hero", health=100)
 
@@ -29,15 +28,22 @@ player.equip()
 
 running = True
 while running:
+    os.system("cls")
+    player.health_bar.draw()
+    enemy.health_bar.draw()
+    
     player_action(player, enemy)
-
-    enemy.attack(player)
-
     if (player.health <= 0):
         print(f"{player.name} Loses...")
         running = False
-    elif (enemy.health <= 0):
+        break
+    
+    input()
+
+    enemy.attack(player)
+    if (enemy.health <= 0):
         print(f"{player.name} has Won!")
         running = False
+        break
 
     input()
