@@ -1,6 +1,10 @@
 from random import choice
 from weapon import *
 from health_bar import HealthBar
+from pygame import mixer
+
+mixer.init()
+
 class Character:
     def __init__(self, name: str, health: int) -> None:
         self.name = name
