@@ -25,6 +25,7 @@ class Player(Character):
             player_selected_weapon = int(input("Your choice is: ")) - 1
         except ValueError:
             print("Invalid value")
+            input("Press ENTER to continue")
             return self.equip()
         except IndexError:
             print("Value is out of range")

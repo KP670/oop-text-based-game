@@ -8,6 +8,7 @@ def player_action(player, target):
         player_choice = int(input("Select your action: \n[1] Attack\n[2] Equip\n[3] Drop Current Weapon\n[4] Skip Turn\n:"))
     except ValueError:
         print("Value must be a string")
+        input("Press ENTER to continue")
         return player_action(player, target)
     
     if (player_choice == 1):
@@ -21,6 +22,7 @@ def player_action(player, target):
         return None
     else:
         print("Invalid value, pick a valid value")
+        input("Press ENTER to continue")
         return player_action(player, target)
 
 
