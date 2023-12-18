@@ -75,5 +75,3 @@ class Enemy(Character):
 
         print(f"{target.name} has been inflicted with -{damage}HP, leaving {target.name} with {target.health}HP!")
         target.health_bar.update()
-
-enemy = Enemy(name="Enemy", health=100, weapons=[fists, bow, bow])
