@@ -1,5 +1,5 @@
 # Instructions
-  build with build.bat script, windows only
+  build with build.ps1 script, windows only
 ## Required modules
   pyinstaller
 
