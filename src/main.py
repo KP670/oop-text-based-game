@@ -14,7 +14,7 @@ def play_again():
     if(player_choice == "YES"):
         return game_loop()
     if(player_choice == "NO"):
-        print("|END SCENE|")
+        input("|END SCENE|")
         raise SystemExit
     else:
         print("Invalid input")
